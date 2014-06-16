@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var obj = { // Array.prototype
+            id: 32,
+            printid: function (caption, asdf){
+                console.log(caption + this.id);
+            }
+        };
+
+        var x = {id:64}; // argunents
+
+
+        var args =  ['a', 'b'];
+        obj.printid('The id of the object is ', 'asdfasdf'); // 'The id of the object is 32'
+        obj.printid.call(x, 'a', 'b'); // 64
+        obj.printid.apply(x, args);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

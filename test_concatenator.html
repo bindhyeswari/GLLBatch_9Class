@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function concatenator(){
+            console.log(arguments);
+            // return a string that concatenates all the strings passed to it
+            // as parameters with a ' ' between them
+
+            /* Approach 1
+            var str = '';
+            for (var i = 0; i < arguments.length; i++){
+                str += arguments[i] + ' ';
+            }
+            return str.trim();*/
+
+            return Array.prototype.reduce.call(arguments, function (oldval, newval){
+                return oldval + ' ' +  newval;
+            });
+
+        }
+
+        var concatenated_string = concatenator('Jacob', 'Hamid', 'Sunitha'); // 'Jacob Hamid Sunitha'
+        console.log(concatenated_string);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

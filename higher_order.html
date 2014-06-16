@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // memoization
+        square.cache = {};
+
+        function square(x){
+
+            if (x in  square.cache) {
+                return  square.cache[x];
+            } else {
+
+                console.log('Working hard to give back a square ... ' + x);
+                square.cache[x] = x * x;
+                return  square.cache[x];
+            }
+
+        }
+
+        var arr = [2,3,4,5,2,8,5,4,6,21];
+
+        var arr_squared = arr.map(square);
+
+        console.log(arr_squared);
+
+        square.cache = null;
+        console.log(square.cache);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

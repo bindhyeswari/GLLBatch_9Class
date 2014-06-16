@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function add(x, y, z){
+            console.log(arguments);
+            console.log('The first argument entered is: ' + arguments[0]);
+            return Array.prototype.reduce.call(arguments,add_two);
+        }
+
+        var p = [1,2,3,4];
+        var x = p.reduce(add_two);
+
+        function add_two(oldval, newval){
+            return oldval + newval;
+        }
+
+        console.log(x);
+
+        console.log(Object.prototype.toString.call(p));
+
+        console.log(
+                add(40, 23, 37, 100)
+        );
+
+
+        function Person(_name){
+            this._name = _name;
+        }
+
+        Person.prototype.toString = function (){
+            return this._name;
+        };
+        var customer = new Person('Jacob');
+        console.log(customer.toString());
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

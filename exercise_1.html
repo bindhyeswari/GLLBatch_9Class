@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div.container {
+            width: 60%;
+            margin: 0 auto;
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function (){
+
+            var movies = [{
+                title: 'The Counselor',
+                url: 'http://ia.media-imdb.com/images/M/MV5BMTc3ODk0MTY0N15BMl5BanBnXkFtZTgwOTU2MTEzMDE@._V1_SY317_CR0,0,214,317_AL_.jpg'
+            }, {
+                title: '12 Years a Slave',
+                url: 'http://ia.media-imdb.com/images/M/MV5BMjExMTEzODkyN15BMl5BanBnXkFtZTcwNTU4NTc4OQ@@._V1_SX214_AL_.jpg'
+            }, {
+                title: 'World War Z',
+                url: 'http://ia.media-imdb.com/images/M/MV5BMTg0NTgxMjIxOF5BMl5BanBnXkFtZTcwMDM0MDY1OQ@@._V1_SX214_AL_.jpg'
+            }];
+
+            var mid = document.createElement('div');
+            mid.className = 'container';
+            document.body.appendChild(mid);
+
+            movies.forEach(function (movie){
+                addMovieContainer(movie, mid);
+            });
+
+
+            function addMovieContainer(movie, container){
+                // expects a movie object containing the url to the image and the title of the movie
+                var span = document.createElement('span');
+                span.innerHTML = movie.title;
+                var img = document.createElement('img');
+                img.src = movie.url;
+                img.alt = movie.title;
+                var div = document.createElement('div');
+                div.appendChild(img);
+                div.appendChild(span);
+
+                container.appendChild(div);
+            }
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

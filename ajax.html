@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // XMLHttpRequest
+        // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#open%28%29
+        function printWeather(cityname){
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=' + cityname + ',us');
+            xhr.onreadystatechange = function (){
+                console.log(xhr.readyState);
+                if (xhr.readyState === 4) {
+                    console.log('Ready to start processing');
+                    console.log(xhr.responseText);
+                    var obj = JSON.parse(xhr.responseText);
+                    console.log(obj.weather[0].description);
+                }
+            };
+            xhr.send();
+        }
+
+        document.addEventListener('DOMContentLoaded', function (){
+            var cities = ['Fremont', 'San Jose'];
+            cities.forEach(printWeather);
+        });
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

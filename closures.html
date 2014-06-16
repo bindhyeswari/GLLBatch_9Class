@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function closure(){
+
+            var x = 100;
+
+            return function (y){
+                x = x + 200;
+                console.log(x + y);
+            };
+
+        }
+
+        var fn = closure();
+        var fn2 = closure();
+        fn.x = 48646848;
+        // some code here to change the x variable from 100 to 200
+        fn(200);
+        fn(200);
+        console.log(fn.x);
+
+
+
+
+        Test.prototype.x = 100;
+        function Test(){
+            this.add = function (y){
+                return this.x + y;
+            };
+        }
+        var t = new Test();
+        console.log(t.add(100));
+        t.x = 300;
+        console.log(t.add(100));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

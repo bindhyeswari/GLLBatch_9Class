@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        div.mydiv {
+            background-color: red;
+        }
+    </style>
+    <script>
+        /**
+         * Why is the inner div captured instead
+         *
+         *
+         * */
+
+        // .innerHTML
+        // .className
+        // .style.bacgroundColor
+
+        // children[]  --- childNodes
+        // .firstElementChild --- firstChild
+        // .lastElementChild --- lastChild
+        // appendChild
+        // insertBefore
+
+        document.addEventListener('DOMContentLoaded', function (){
+            // document.body
+
+            /*document.getElementsByTagName('body')[0].innerHTML = 'Hello World from Javacript';
+            document.body.innerHTML += '\nHello Again';*/
+            // document.getElementById('div1')
+
+            document.getElementsByTagName('div')[3].innerHTML = 'test';
+
+            var firstdiv = document.getElementById('div1');
+
+            firstdiv.className = 'mydiv';
+            // firstdiv.style.backgroundColor = 'green';
+
+            firstdiv.setAttribute('data-name', 'Hamid');
+
+            /*var nodes = firstdiv.children;
+            for (var i = 0; i < nodes.length; i++){
+                console.log(nodes[i].nodeType);
+            }*/
+
+            document.body.firstElementChild.firstElementChild.innerHTML = 'Changed the span';
+
+            var span2 = document.createElement('span');
+            span2.innerHTML = 'I am span 2';
+            firstdiv.appendChild(span2);
+
+        });
+    </script>
+</head>
+<body>
+
+    <div id="div1">
+        Div1
+        <span>span1</span>
+        <!--comment node-->
+    </div>
+
+    <div>Div2</div>
+    <div>Div3</div>
+    <header>
+
+        <div>Div4
+            <div>Div5
+            </div>
+        </div>
+    </header>
+
+
+</body>
+</html>
